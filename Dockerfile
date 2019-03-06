@@ -1,8 +1,7 @@
-FROM python:3.7.2-alpine
+FROM python:3.7.2
 
-RUN apk add bash bash-completion
-RUN apk add curl tree vim git
-RUN apk add perl
+RUN apt-get update
+RUN apt-get install -y curl tree vim git
 
 RUN curl https://raw.githubusercontent.com/skxeve/dotfiles/master/install.sh | bash
 RUN curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
