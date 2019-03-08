@@ -17,15 +17,25 @@ col = cm.Spectral(
         )  # color指定はcolormapから好みのものを。
 
 # pie
+# https://matplotlib.org/api/_as_gen/matplotlib.pyplot.html
+
+# create a new figure
 plt.figure(figsize=size, dpi=100)
+# plot a pie chart
 plt.pie(
         data,
         colors=col,
         counterclock=False,
+        # if default None, start right to under. 90, start top to right.
         startangle=90,
+        # in graph string to show each numeric values.
         autopct=lambda p: '{:.1f}%'.format(p) if p >= 5 else ''
         )
+# Tune the subplot layout
 plt.subplots_adjust(left=0, right=0.7)
+# Place a legend on the axes.
 plt.legend(label, fancybox=True, loc='center left', bbox_to_anchor=(0.9, 0.5))
+# Convenience method to get or set some axis properties.
 plt.axis('equal')
+# Save the current figure.
 plt.savefig('figure.png', bbox_inches='tight', pad_inches=0.05)
